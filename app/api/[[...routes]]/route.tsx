@@ -13,12 +13,6 @@ import abi from './abi.json';
 
 import { ZeroXSwapQuote } from './types'
 
-type FrogOptions = {
-  Bindings: { ALCHEMY_APY?: string}
-}
-
-export type CustomTransactionContext = TransactionContext<FrogOptions>
-
 const assets = [
   {
     name: '$HIGHER',
@@ -40,23 +34,12 @@ const baseClient = createPublicClient({
   transport: http(),
 })
 
-// const account = privateKeyToAccount((process.env.PRIVATE_KEY as `0x`) || "");
-
-// const walletClient = createWalletClient({
-//   account: "",
-//   chain: baseSepolia,
-//   transport: http(`https://base-sepolia.g.alchemy.com/v2/${process.env.ALCHEMY_APY}`),
-// });
-
 const app = new Frog({
   assetsPath: '/',
   basePath: '/api',
   // Supply a Hub to enable frame verification.
   // hub: neynar({ apiKey: 'NEYNAR_FROG_FM' })
 })
-
-// Uncomment to use Edge Runtime
-// export const runtime = 'edge'
 
 app.frame('/', (c) => {
   const { buttonValue, inputText, status } = c
