@@ -79,14 +79,14 @@ app.frame('/', (c) => {
     ),
     intents: [
       <TextInput placeholder="Value (ETH)" />,
-      // <Button.Transaction target={`/mint`}>
-      //   Mint
-      // </Button.Transaction>,
-      <Button.Mint
-        target="eip155:84532:0x984796A8e0433eFF116Af927B5C4D28dA806a9f8:100"
-      >
+      <Button.Transaction target={`/mint`}>
         Mint
-      </Button.Mint>,
+      </Button.Transaction>,
+      // <Button.Mint
+      //   target="eip155:84532:0x984796A8e0433eFF116Af927B5C4D28dA806a9f8:100"
+      // >
+      //   Mint
+      // </Button.Mint>,
     ],
   })
 })
@@ -99,7 +99,6 @@ app.transaction("/mint", async (c) => {
     chainId: 'eip155:84532',
     functionName: 'mint',
     to: '0x984796A8e0433eFF116Af927B5C4D28dA806a9f8',
-    value: parseEther('0.01'),
   })
 });
 
