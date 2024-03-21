@@ -83,7 +83,7 @@ app.frame('/', (c) => {
       //   Mint
       // </Button.Transaction>,
       <Button.Mint
-        target="eip155:84532:0x984796A8e0433eFF116Af927B5C4D28dA806a9f8"
+        target="eip155:84532:0x984796A8e0433eFF116Af927B5C4D28dA806a9f8:100"
       >
         Mint
       </Button.Mint>,
