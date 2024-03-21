@@ -97,6 +97,7 @@ app.frame('/', (c) => {
       </div>
     ),
     intents: [
+      <TextInput placeholder="Value (ETH)" />,
       <Button.Transaction target={`/mint`}>
         Mint
       </Button.Transaction>,
@@ -105,16 +106,18 @@ app.frame('/', (c) => {
 })
 
 app.transaction("/mint", async (c) => {
+  const { inputText } = c
+
+
   return c.contract({ 
     abi,
     chainId: 'eip155:84532',
     functionName: 'mint',
+    args: [BigInt(69420)],
     to: '0x984796A8e0433eFF116Af927B5C4D28dA806a9f8', 
-    value: parseEther('100'),
+    value: parseEther(inputText || '0.01'),
   }) 
 });
-
-
 
 
 export const GET = handle(app)
