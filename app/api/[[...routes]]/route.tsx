@@ -14,7 +14,7 @@ import abi from './abi.json';
 import { ZeroXSwapQuote } from './types'
 
 type FrogOptions = {
-  Bindings: { ZEROX_API_KEY?: string }
+  Bindings: { ZEROX_API_KEY?: string, ALCHEMY_APY?: string }
 }
 
 export type CustomTransactionContext = TransactionContext<FrogOptions>
@@ -108,7 +108,6 @@ app.frame('/', (c) => {
 app.transaction("/mint", async (c) => {
   const { inputText } = c
 
-
   return c.contract({ 
     abi,
     chainId: 'eip155:84532',
@@ -116,7 +115,7 @@ app.transaction("/mint", async (c) => {
     args: [BigInt(69420)],
     to: '0x984796A8e0433eFF116Af927B5C4D28dA806a9f8', 
     value: parseEther(inputText || '0.01'),
-  }) 
+  })
 });
 
 
