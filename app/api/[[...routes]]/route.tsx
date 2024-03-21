@@ -14,7 +14,7 @@ import abi from './abi.json';
 import { ZeroXSwapQuote } from './types'
 
 type FrogOptions = {
-  Bindings: { ZEROX_API_KEY?: string, ALCHEMY_APY?: string }
+  Bindings: { ZEROX_API_KEY?: string}
 }
 
 export type CustomTransactionContext = TransactionContext<FrogOptions>
