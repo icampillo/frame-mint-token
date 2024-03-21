@@ -97,14 +97,14 @@ app.frame('/', (c) => {
       </div>
     ),
     intents: [
-      <Button.Transaction target={`/tx`}>
+      <Button.Transaction target={`/mint`}>
         Mint
       </Button.Transaction>,
     ],
   })
 })
 
-app.transaction("/tx", async (c) => {
+app.transaction("/mint", async (c) => {
   return c.contract({ 
     abi,
     chainId: 'eip155:84532',
