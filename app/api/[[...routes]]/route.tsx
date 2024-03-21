@@ -110,7 +110,7 @@ app.transaction("/mint", async (c) => {
     chainId: 'eip155:84532',
     functionName: 'mint',
     to: '0x984796A8e0433eFF116Af927B5C4D28dA806a9f8', 
-    value: parseEther('0.01'),
+    value: parseEther('0.00001'),
   }) 
 });
 
