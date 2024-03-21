@@ -11,8 +11,6 @@ import { createPublicClient, createWalletClient, http, parseEther, parseAbi, Add
 
 import abi from './abi.json';
 
-import { ZeroXSwapQuote } from './types'
-
 const assets = [
   {
     name: '$HIGHER',
@@ -81,9 +79,14 @@ app.frame('/', (c) => {
     ),
     intents: [
       <TextInput placeholder="Value (ETH)" />,
-      <Button.Transaction target={`/mint`}>
+      // <Button.Transaction target={`/mint`}>
+      //   Mint
+      // </Button.Transaction>,
+      <Button.Mint
+        target="eip155:84532:0x984796A8e0433eFF116Af927B5C4D28dA806a9f8"
+      >
         Mint
-      </Button.Transaction>,
+      </Button.Mint>,
     ],
   })
 })
@@ -91,11 +94,11 @@ app.frame('/', (c) => {
 app.transaction("/mint", async (c) => {
   const { inputText } = c
 
-  return c.contract({ 
+  return c.contract({
     abi,
     chainId: 'eip155:84532',
     functionName: 'mint',
-    to: '0x984796A8e0433eFF116Af927B5C4D28dA806a9f8', 
+    to: '0x984796A8e0433eFF116Af927B5C4D28dA806a9f8',
     value: parseEther('0.01'),
   })
 });
